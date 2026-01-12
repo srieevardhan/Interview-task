@@ -1,38 +1,123 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #f8fafc, #eef2f7);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 32px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  margin-bottom: 6px;
+  color: #1f2933;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.subtitle {
+  margin-bottom: 28px;
+  color: #475569;
+  font-size: 14px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Controls */
+.controls {
+  margin-bottom: 32px;
+}
+
+/* Buttons */
+.primary-btn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: white;
+  border: none;
+  padding: 12px 22px;
+  margin: 0 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
 }
 
-.App-link {
-  color: #61dafb;
+.primary-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.primary-btn:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+}
+
+.primary-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Active sorting button */
+.primary-btn.active {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+}
+
+/* Bars */
+.bars-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 330px;
+  max-width: 100%;
+  margin: 0 auto 30px auto;
+  padding: 14px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.bar {
+  width: 18px;
+  margin: 0 3px;
+  border-radius: 5px 5px 0 0;
+  transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  font-size: 14px;
+  color: #334155;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+}
+
+.box {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  border-radius: 4px;
+}
+
+/* Colors */
+.blue {
+  background-color: #3b82f6;
+}
+
+.red {
+  background-color: #ef4444;
+}
+
+.green {
+  background-color: #22c55e;
 }

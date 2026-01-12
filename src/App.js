@@ -1,23 +1,89 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Bars from "./components/Bars";
+import "./App.css";
 
 function App() {
+  const [array, setArray] = useState([]);
+  const [comparing, setComparing] = useState([]);
+  const [sortedIndex, setSortedIndex] = useState([]);
+  const [isSorting, setIsSorting] = useState(false);
+
+  const generateArray = () => {
+    if (isSorting) return;
+
+    const size = Math.floor(Math.random() * 11) + 10;
+    const newArray = Array.from({ length: size }, () =>
+      Math.floor(Math.random() * 200) + 30
+    );
+
+    setArray(newArray);
+    setComparing([]);
+    setSortedIndex([]);
+  };
+
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const bubbleSort = async () => {
+    setIsSorting(true);
+    let arr = [...array];
+    let n = arr.length;
+
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n - i - 1; j++) {
+        setComparing([j, j + 1]);
+        await delay(300);
+
+        if (arr[j] > arr[j + 1]) {
+          let temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+          setArray([...arr]);
+          await delay(300);
+        }
+      }
+      setSortedIndex((prev) => [...prev, n - i - 1]);
+    }
+
+    setComparing([]);
+    setIsSorting(false);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="app">
+      <h1>Bubble Sort Visualizer</h1>
+      <p className="subtitle">
+        Visual step-by-step demonstration of Bubble Sort algorithm
+      </p>
+
+      <div className="controls">
+        <button
+          className="primary-btn"
+          onClick={generateArray}
+          disabled={isSorting}
         >
-          Learn React
-        </a>
-      </header>
+          Generate New Array
+        </button>
+
+        <button
+          className={`primary-btn ${isSorting ? "active" : ""}`}
+          onClick={bubbleSort}
+          disabled={isSorting || array.length === 0}
+        >
+          {isSorting ? "Sorting..." : "Start Sorting"}
+        </button>
+      </div>
+
+      <Bars
+        array={array}
+        comparing={comparing}
+        sortedIndex={sortedIndex}
+      />
+
+      <div className="legend">
+        <div><span className="box blue"></span> Unsorted</div>
+        <div><span className="box red"></span> Comparing</div>
+        <div><span className="box green"></span> Sorted</div>
+      </div>
     </div>
   );
 }
