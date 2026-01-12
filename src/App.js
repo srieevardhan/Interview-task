@@ -56,20 +56,11 @@ function App() {
       </p>
 
       <div className="controls">
-        <button
-          className="primary-btn"
-          onClick={generateArray}
-          disabled={isSorting}
-        >
+        <button onClick={generateArray} disabled={isSorting}>
           Generate New Array
         </button>
-
-        <button
-          className={`primary-btn ${isSorting ? "active" : ""}`}
-          onClick={bubbleSort}
-          disabled={isSorting || array.length === 0}
-        >
-          {isSorting ? "Sorting..." : "Start Sorting"}
+        <button onClick={bubbleSort} disabled={isSorting || array.length === 0}>
+          Start Sorting
         </button>
       </div>
 

@@ -4,67 +4,52 @@
 
 body {
   margin: 0;
-  background: linear-gradient(to bottom, #f8fafc, #eef2f7);
+  background-color: #f4f6f8;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .app {
   min-height: 100vh;
-  padding: 32px 20px;
+  padding: 30px 20px;
   text-align: center;
 }
 
 h1 {
-  margin-bottom: 6px;
-  color: #1f2933;
+  margin-bottom: 5px;
+  color: #222;
 }
 
 .subtitle {
-  margin-bottom: 28px;
-  color: #475569;
+  margin-bottom: 25px;
+  color: #555;
   font-size: 14px;
 }
 
-/* Controls */
+/* Buttons */
 .controls {
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
-/* Buttons */
-.primary-btn {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+button {
+  background-color: #2563eb;
   color: white;
   border: none;
-  padding: 12px 22px;
+  padding: 12px 18px;
   margin: 0 10px;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 15px;
-  font-weight: 500;
   cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.primary-btn:hover:not(:disabled) {
+button:hover:not(:disabled) {
+  background-color: #1e4ed8;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
 }
 
-.primary-btn:active:not(:disabled) {
-  transform: translateY(1px);
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
-}
-
-.primary-btn:disabled {
-  background: #94a3b8;
+button:disabled {
+  background-color: #94a3b8;
   cursor: not-allowed;
-  box-shadow: none;
-}
-
-/* Active sorting button */
-.primary-btn.active {
-  background: linear-gradient(135deg, #16a34a, #15803d);
-  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
 }
 
 /* Bars */
@@ -72,19 +57,19 @@ h1 {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 330px;
+  height: 320px;
   max-width: 100%;
   margin: 0 auto 30px auto;
-  padding: 14px;
-  background-color: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .bar {
   width: 18px;
   margin: 0 3px;
-  border-radius: 5px 5px 0 0;
+  border-radius: 4px 4px 0 0;
   transition: height 0.3s ease, background-color 0.3s ease;
 }
 
@@ -92,9 +77,9 @@ h1 {
 .legend {
   display: flex;
   justify-content: center;
-  gap: 26px;
+  gap: 25px;
   font-size: 14px;
-  color: #334155;
+  color: #333;
 }
 
 .legend div {
@@ -106,7 +91,7 @@ h1 {
   width: 14px;
   height: 14px;
   margin-right: 6px;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 /* Colors */
