@@ -8,6 +8,9 @@ function App() {
   const [sortedIndex, setSortedIndex] = useState([]);
   const [isSorting, setIsSorting] = useState(false);
 
+  // 🔹 Swap Counter state
+  const [swapCount, setSwapCount] = useState(0);
+
   const generateArray = () => {
     if (isSorting) return;
 
@@ -19,6 +22,7 @@ function App() {
     setArray(newArray);
     setComparing([]);
     setSortedIndex([]);
+    setSwapCount(0); // 🔹 reset swap counter
   };
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -34,10 +38,13 @@ function App() {
         await delay(300);
 
         if (arr[j] > arr[j + 1]) {
+          // 🔹 swap
           let temp = arr[j];
           arr[j] = arr[j + 1];
           arr[j + 1] = temp;
+
           setArray([...arr]);
+          setSwapCount((prev) => prev + 1); // 🔹 increment swap counter
           await delay(300);
         }
       }
@@ -62,6 +69,11 @@ function App() {
         <button onClick={bubbleSort} disabled={isSorting || array.length === 0}>
           Start Sorting
         </button>
+      </div>
+
+      {/* 🔹 Swap Counter Display */}
+      <div className="swap-counter">
+        🔁 Swaps: <strong>{swapCount}</strong>
       </div>
 
       <Bars
