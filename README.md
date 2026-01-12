@@ -1,5 +1,11 @@
 # Bubble Sort Visualizer
 
+## 🚀 Live Demo
+
+🔗 **Live Application:**  
+https://sorting-neon.vercel.app/
+
+
 ## Bubble Sort Explanation
 Bubble Sort repeatedly compares adjacent elements and swaps them if they are in the wrong order.
 This process continues until the array becomes fully sorted.
