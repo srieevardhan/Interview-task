@@ -3,7 +3,7 @@
 ## 🚀 Live Demo
 
 🔗 **Live Application:**  
-https://sorting-neon.vercel.app/
+https://sort-theta.vercel.app/
 
 
 ## Bubble Sort Explanation
